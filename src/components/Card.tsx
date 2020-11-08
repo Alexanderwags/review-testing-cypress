@@ -1,3 +1,4 @@
+import { trace } from "mobx";
 import { inject, observer, Observer } from "mobx-react";
 import React, { useState } from "react";
 import { useEffect } from "react";
@@ -20,6 +21,7 @@ export const Card = inject("infoStore")(
             onClick={() => {
               setstate(state + 1);
               infoStore.addInfo();
+              infoStore.someAction();
             }}
           >
             Seconds passed: {infoStore.info}
