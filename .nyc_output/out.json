@@ -650,7 +650,7 @@
           "column": 2
         },
         "end": {
-          "line": 16,
+          "line": 24,
           "column": 4
         }
       }
@@ -674,7 +674,7 @@
             "column": 15
           },
           "end": {
-            "line": 17,
+            "line": 25,
             "column": 1
           }
         },
@@ -691,7 +691,7 @@
     },
     "b": {},
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "174f1bb0b889906994c5d74d399791064828fdc4"
+    "hash": "20a3a3e873cf773388e5c4aa45b402a4b96f9be7"
   },
   "C:\\Users\\Oficina 4\\Desktop\\testing\\my-app\\src\\index.tsx": {
     "path": "C:\\Users\\Oficina 4\\Desktop\\testing\\my-app\\src\\index.tsx",
