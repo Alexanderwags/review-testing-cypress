@@ -1,11 +1,13 @@
-import { inject, observer, Observer, useLocalObservable } from "mobx-react";
-import React from "react";
+import { observer } from "mobx-react";
+import React, { Suspense } from "react";
 import { Card } from "../components/Card";
+import { Crimes } from "../components/Crimes/Crimes";
 
 export const Home = observer((props: any) => {
   return (
     <>
-      <Card {...props} />
+      <Crimes />
+      {/* <Card {...props} /> */}
     </>
   );
 });

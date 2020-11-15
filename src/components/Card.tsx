@@ -1,32 +1,31 @@
-import { trace } from "mobx";
-import { inject, observer, Observer } from "mobx-react";
+import { inject, observer } from "mobx-react";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import InfoStore from "../Store/InfoStore";
+import CrimesStore from "Store/CrimesStore";
 
 interface CardProps {
-  infoStore?: InfoStore | any;
+  crimesStore?: CrimesStore | any;
 }
-export const Card = inject("infoStore")(
+export const Card = inject("crimesStore")(
   observer((props: CardProps) => {
     const [state, setstate] = useState(0);
     useEffect(() => {
       console.log("render");
     }, [props]);
     const renderTest = () => {
-      const { infoStore } = props;
+      const { crimesStore } = props;
       return (
         <>
           <button
             onClick={() => {
               setstate(state + 1);
-              infoStore.addInfo();
-              infoStore.someAction();
+              crimesStore.addInfo();
+              crimesStore.someAction();
             }}
           >
-            Seconds passed: {infoStore.info}
+            Seconds passed: {crimesStore.info}
           </button>
-          <p>{infoStore.info}</p>
+          <p>{crimesStore.info}</p>
           <p>{state}</p>
         </>
       );
