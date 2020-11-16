@@ -5,8 +5,8 @@ import Menu from "./Menu/Menu";
 const Router = () => {
   return (
     <>
-      <Menu />
       <BrowserRouter>
+        <Menu />
         <Switch>
           <Route exact path="/" component={Home} />
         </Switch>

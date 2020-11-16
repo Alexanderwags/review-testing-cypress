@@ -1,10 +1,13 @@
 import { action, entries, flow, makeAutoObservable, observable } from "mobx";
 import axios from "axios";
+import { Crime } from "components/Crimes/Crime";
+
 export const url = "https://data.police.uk/api";
 class CrimesStore {
   @observable info: any = 0;
   @observable array: any = ["william", "alex"];
   @observable category: any[] = [];
+  @observable Crimes: Crime[] = [];
   constructor() {
     makeAutoObservable(this);
   }
@@ -20,11 +23,13 @@ class CrimesStore {
       "https://jsonplaceholder.typicode.com/todos/1"
     );
   });
-  requestCategories = async () => {
-    this.category = await axios.get(
-      `${url}/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10`
-    );
-    console.log("category ", this.category);
+  requestCategories = async (url: string) => {
+    let response: any = await axios.get(url);
+    this.category = response.data;
+  };
+  requestAllCrimes = async (url: string) => {
+    let response = await axios.get(url);
+    this.Crimes = response.data;
   };
 }
 
