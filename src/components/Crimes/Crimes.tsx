@@ -23,14 +23,6 @@ const Crimes = inject("crimesStore")((props: CrimesProps) => {
         const { crimesStore } = props;
         return (
           <>
-            {/* <List
-              className={`${List} ${Style.container}`}
-              height={500}
-              itemCount={crimesStore?.Crimes.length ?? 0}
-              itemSize={300}
-              useIsScrolling
-              width={"100vw"}
-            > */}
             <Grid
               columnCount={5}
               columnWidth={(window.innerWidth * 20) / 100}
@@ -44,8 +36,6 @@ const Crimes = inject("crimesStore")((props: CrimesProps) => {
             >
               {DisplayCrimes}
             </Grid>
-
-            {/* </List> */}
           </>
         );
       }}
