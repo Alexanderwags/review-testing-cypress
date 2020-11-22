@@ -1,11 +1,19 @@
 export interface Crime {
   category: string;
+  location_type: string;
+  location: LocationCrime;
   context: string;
   id: number;
-  location: string | any;
-  location_subtype: string;
-  location_type: string;
-  month: String;
   outcome_status: any;
+  location_subtype: string;
   persistent_id: string;
+  month: String;
+}
+interface LocationCrime {
+  latitude: string;
+  street: {
+    id: number;
+    name: string;
+  };
+  longitude: string;
 }

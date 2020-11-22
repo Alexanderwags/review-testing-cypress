@@ -23,7 +23,14 @@ const Menu = inject("crimesStore")((props: MenuProps) => {
     if ((crimesStore as any).category.length > 0) {
       return crimesStore?.category.map((cat: Category, i) => {
         return (
-          <Link key={`catg-${i}`} to="/">
+          <Link
+            key={`catg-${i}`}
+            to="/"
+            onClick={(e) => {
+              const { crimesStore } = props;
+              crimesStore?.setCat(cat.url);
+            }}
+          >
             {cat.name}
           </Link>
         );

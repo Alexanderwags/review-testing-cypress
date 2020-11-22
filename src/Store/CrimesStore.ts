@@ -8,6 +8,7 @@ class CrimesStore {
   @observable array: any = ["william", "alex"];
   @observable category: any[] = [];
   @observable Crimes: Crime[] = [];
+  @observable cat: any = "";
   constructor() {
     makeAutoObservable(this);
   }
@@ -31,6 +32,15 @@ class CrimesStore {
     let response = await axios.get(url);
     this.Crimes = response.data;
   };
+  @action setCrimes(value: string) {
+    let test = this.Crimes.filter((cri) => {
+      return cri.category == value;
+    });
+    this.Crimes = test;
+  }
+  @action setCat(value) {
+    this.cat = value;
+  }
 }
 
 export default CrimesStore;
