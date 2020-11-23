@@ -6,44 +6,47 @@ import CrimesStore from "Store/CrimesStore";
 import Style from "./Styles/Display.module.scss";
 import "react-placeholder/lib/reactPlaceholder.css";
 import { Crime } from "./Crime";
+import Location from "utils/svg/Location";
+import Area from "utils/svg/Area";
 interface DisplayCrimesProps {
   crimesStore?: CrimesStore;
   data?: any;
-  columnIndex?: number;
+  index?: number;
   isScrolling?: boolean;
   style?: any;
   args?: any;
+  rowIndex?: number;
 }
+
 const DisplayCrimes = inject("crimesStore")((props: DisplayCrimesProps) => {
-  const { crimesStore, columnIndex: c = 0, isScrolling, style, data } = props;
-  console.log("crimesStore?.Crimes[c] ", style.position);
-  // const styless = {
-  //   position: "absolute",
-  //   left: "style.left",
-  //   top: "style.top",
-  //   height: "style.height",
-  //   width: "style.width",
-  // };
+  const { crimesStore, index = 0, isScrolling, style, data, rowIndex } = props;
   const mystyle = {
     left: parseInt(`${style.left}`),
-    top: parseInt(`${style.top}`),
-    height: parseInt(`${style.height - 10}`),
-    width: parseInt(`${style.width - 10}`),
+    top:
+      index % 2 == 0 ? parseInt(`${style.top}`) : parseInt(`${style.top + 20}`),
+    height: parseInt(`${style.height - 20}`),
+    width: parseInt(`${style.width - 20}`),
   };
   if (!isScrolling) {
     return (
-      <div
-        style={{ position: style.absolute, ...mystyle }}
-        className={Style.container}
-      >
+      <div style={{ ...style, ...mystyle }} className={Style.container}>
         <h3 className={Style.title}>street</h3>
-        <p className={Style.info}>
-          {crimesStore?.Crimes[c]?.location?.street.name}
-        </p>
+        <div className={Style.infoCard}>
+          <p className={Style.info}>
+            {crimesStore?.Crimes[index]?.location?.street.name}
+          </p>
+          <Area />
+        </div>
+
         <h3 className={Style.title}>location</h3>
-        <p className={Style.info}>{crimesStore?.Crimes[c]?.location_type}</p>
+        <div className={Style.infoCard}>
+          <p className={Style.info}>
+            {crimesStore?.Crimes[index]?.location_type}
+          </p>
+          <Location />
+        </div>
         <h3 className={Style.title}>context</h3>
-        <p className={Style.info}>{crimesStore?.Crimes[c]?.context}</p>
+        <p className={Style.info}>{crimesStore?.Crimes[index]?.context}</p>
       </div>
     );
   } else {

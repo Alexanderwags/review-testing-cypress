@@ -40,6 +40,7 @@ class CrimesStore {
   }
   @action setCat(value) {
     this.cat = value;
+    this.Crimes = this.Crimes.filter((c) => c.category === value);
   }
 }
 

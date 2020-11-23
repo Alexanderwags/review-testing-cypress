@@ -24,6 +24,7 @@ const Menu = inject("crimesStore")((props: MenuProps) => {
       return crimesStore?.category.map((cat: Category, i) => {
         return (
           <Link
+            className={Styles.link}
             key={`catg-${i}`}
             to="/"
             onClick={(e) => {

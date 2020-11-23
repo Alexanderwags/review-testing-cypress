@@ -9,6 +9,8 @@ import { RectShape } from "react-placeholder/lib/placeholders";
 import ReactPlaceholder from "react-placeholder/lib";
 import InfiniteLoader from "react-window-infinite-loader";
 import { getCrimen } from "utils/util";
+import MyLoader from "components/Placeholder/MyLoader";
+import MyLoader1 from "components/Placeholder/MyLoader1";
 export interface CrimesProps {
   crimesStore?: CrimesStore;
 }
@@ -32,22 +34,23 @@ const Crimes = inject("crimesStore")((props: CrimesProps) => {
     <Observer>
       {() => {
         return (
-          <div className={Style.container}>
-            {crimesStore?.Crimes && (
-              <Grid
-                columnCount={5}
-                columnWidth={(window.innerWidth * 25 - 100) / 100}
-                height={window.innerHeight}
-                rowCount={50}
-                rowHeight={300}
-                width={window.innerWidth}
-                initialScrollLeft={0}
-                initialScrollTop={0}
-                useIsScrolling
-              >
-                {DisplayCrimes}
-              </Grid>
-            )}
+          // <div className={Style.container}>
+          //   {crimesStore?.Crimes && (
+          //     <List
+          //       height={window.outerHeight - 100}
+          //       width={1000}
+          //       useIsScrolling
+          //       itemCount={crimesStore?.Crimes.length}
+          //       itemSize={300}
+          //       className={Style.container}
+          //     >
+          //       {DisplayCrimes}
+          //     </List>
+          //   )}
+          // </div>
+          <div>
+            <MyLoader />
+            <MyLoader1 />
           </div>
         );
       }}

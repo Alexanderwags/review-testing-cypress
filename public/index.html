@@ -10,11 +10,22 @@
       content="Web site created using create-react-app"
     />
     <style>
-
-      body{
+      body {
         margin: 0;
         padding: 0;
-        background-color: #C5C5C5;
+        background-color: #fffaff;
+      }
+      body::-webkit-scrollbar {
+        width: 1em;
+      }
+
+      body::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
       }
     </style>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />

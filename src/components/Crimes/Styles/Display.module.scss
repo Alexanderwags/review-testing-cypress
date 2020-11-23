@@ -1,12 +1,6 @@
 :local {
   .container {
-    // background-color: #3e92cc;
-    // display: flex;
-    // justify-content: center;
-    // flex-direction: column;
-    // align-items: flex-start;
-    // margin: 10px;
-    background: #fffaff;
+    background: #3e92cc;
     border-radius: 2px;
     display: flex;
     justify-content: center;
@@ -16,11 +10,20 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
+  @keyframes contentAnimated {
+    from {
+      transform: scaleY(1);
+    }
+    to {
+      transform: scaleY(1.1);
+    }
+  }
   .container:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    animation: contentAnimated 1s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .info {
-    background-color: #3e92cc;
+    background-color: #fffaff;
     width: 80%;
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
@@ -28,7 +31,7 @@
     align-items: center;
     height: 38px;
     margin: 5px 0;
-    color: #fffaff;
+    color: #3e92cc;
   }
 
   .title {
@@ -37,5 +40,20 @@
     font-size: 14px;
     color: #fffaff;
     margin-left: 10px;
+  }
+  .infoCard {
+    display: flex;
+    width: 100%;
+    position: relative;
+    svg {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: 220px;
+      top: 13px;
+      path {
+        fill: #3e92cc;
+      }
+    }
   }
 }
