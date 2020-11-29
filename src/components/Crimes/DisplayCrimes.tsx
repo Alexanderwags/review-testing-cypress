@@ -8,6 +8,13 @@ import "react-placeholder/lib/reactPlaceholder.css";
 import { Crime } from "./Crime";
 import Location from "utils/svg/Location";
 import Area from "utils/svg/Area";
+import {
+  IoLocationOutline,
+  IoInformationCircleSharp,
+  IoEarth,
+  IoArrowForwardCircleSharp,
+} from "react-icons/io5";
+
 interface DisplayCrimesProps {
   crimesStore?: CrimesStore;
   data?: any;
@@ -34,19 +41,26 @@ const DisplayCrimes = inject("crimesStore")((props: DisplayCrimesProps) => {
     return Object.entries(crimesStore?.Crimes[index]).map((ele: any, i) => {
       return (
         <div key={i} className={Style.container}>
+          <IoInformationCircleSharp size={60} />
           <h3 className={Style.title}>street</h3>
           <div className={Style.infoCard}>
             <p className={Style.info}>{ele[1]?.location?.street.name}</p>
-            <Area />
+            <IoEarth />
           </div>
 
           <h3 className={Style.title}>location</h3>
           <div className={Style.infoCard}>
             <p className={Style.info}>{ele[1]?.location_type}</p>
-            <Location />
+            <IoLocationOutline />
           </div>
           <h3 className={Style.title}>context</h3>
-          <p className={Style.info}>{ele[1]?.context}</p>
+          <div className={Style.infoCard}>
+            <p className={Style.info}>{ele[1]?.context}</p>
+          </div>
+          <div className={Style.btn}>
+            <IoArrowForwardCircleSharp size={30} />
+            <button onClick={() => {}}>read more</button>
+          </div>
         </div>
       );
     });
@@ -54,34 +68,6 @@ const DisplayCrimes = inject("crimesStore")((props: DisplayCrimesProps) => {
   if (!isScrolling) {
     return (
       <>
-        {/* //{" "}
-        <div style={{ ...style, ...mystyle }} className={Style.container}>
-          // <h3 className={Style.title}>street</h3>
-          //{" "}
-          <div className={Style.infoCard}>
-            //{" "}
-            <p className={Style.info}>
-              // {crimesStore?.Crimes[index]?.location?.street.name}
-              //{" "}
-            </p>
-            // <Area />
-            //{" "}
-          </div>
-          // <h3 className={Style.title}>location</h3>
-          //{" "}
-          <div className={Style.infoCard}>
-            //{" "}
-            <p className={Style.info}>
-              // {crimesStore?.Crimes[index]?.location_type}
-              //{" "}
-            </p>
-            // <Location />
-            //{" "}
-          </div>
-          // <h3 className={Style.title}>context</h3>
-          // <p className={Style.info}>{crimesStore?.Crimes[index]?.context}</p>
-          //{" "}
-        </div> */}
         <div style={{ ...style, ...mystyle }} className={Style.containerParent}>
           {showCrimes()}
         </div>

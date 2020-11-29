@@ -8,12 +8,12 @@
     position: absolute;
   }
   .container {
-    background: #3e92cc;
+    background: #fffaff;
     border-radius: 2px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     width: 33.333%;
@@ -25,7 +25,7 @@
       transform: scaleY(1);
     }
     to {
-      transform: scaleY(1.1);
+      transform: scaleY(1.05);
     }
   }
   .container:hover {
@@ -33,26 +33,28 @@
     animation: contentAnimated 1s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .info {
-    background-color: #fffaff;
+    background-color: #3e92cc;
     width: 80%;
-    border-bottom-right-radius: 30px;
-    border-top-right-radius: 30px;
+    border-radius: 30px;
     display: flex;
     align-items: center;
     height: 38px;
     margin: 5px 0;
-    color: #3e92cc;
+    color: #fffaff;
+    padding-left: 15px;
   }
 
   .title {
     margin: 0;
     padding: 0;
     font-size: 14px;
-    color: #fffaff;
-    margin-left: 10px;
+    color: #3e92cc;
+    margin-left: 15px;
+    width: 80%;
   }
   .infoCard {
     display: flex;
+    justify-content: center;
     width: 100%;
     position: relative;
     svg {
@@ -64,6 +66,34 @@
       path {
         fill: #3e92cc;
       }
+    }
+  }
+  // Basic Button Style
+  .btn {
+    display: flex;
+    align-items: center;
+
+    border-radius: 30px;
+
+    padding: 8px;
+    svg {
+      fill: #3e92cc;
+    }
+    button {
+      background: none;
+      color: #3e92cc;
+      border: 0;
+    }
+  }
+
+  .btn:hover {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #3e92cc;
+    svg {
+      fill: #fffaff;
+    }
+    button {
+      color: #fffaff;
     }
   }
 }
