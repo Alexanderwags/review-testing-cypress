@@ -34,23 +34,19 @@ const Crimes = inject("crimesStore")((props: CrimesProps) => {
     <Observer>
       {() => {
         return (
-          // <div className={Style.container}>
-          //   {crimesStore?.Crimes && (
-          //     <List
-          //       height={window.outerHeight - 100}
-          //       width={1000}
-          //       useIsScrolling
-          //       itemCount={crimesStore?.Crimes.length}
-          //       itemSize={300}
-          //       className={Style.container}
-          //     >
-          //       {DisplayCrimes}
-          //     </List>
-          //   )}
-          // </div>
-          <div>
-            <MyLoader />
-            <MyLoader1 />
+          <div className={Style.container}>
+            {crimesStore?.Crimes && (
+              <List
+                height={window.outerHeight - 100}
+                width={window.innerWidth}
+                useIsScrolling
+                itemCount={crimesStore?.Crimes.length}
+                itemSize={400}
+                className={Style.container}
+              >
+                {DisplayCrimes}
+              </List>
+            )}
           </div>
         );
       }}

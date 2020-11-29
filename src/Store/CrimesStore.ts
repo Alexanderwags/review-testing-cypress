@@ -7,7 +7,7 @@ class CrimesStore {
   @observable info: any = 0;
   @observable array: any = ["william", "alex"];
   @observable category: any[] = [];
-  @observable Crimes: Crime[] = [];
+  @observable Crimes: any[] = [];
   @observable cat: any = "";
   constructor() {
     makeAutoObservable(this);
@@ -30,7 +30,19 @@ class CrimesStore {
   };
   requestAllCrimes = async (url: string) => {
     let response = await axios.get(url);
-    this.Crimes = response.data;
+    // this.Crimes = response.data;
+    let cont = 0;
+    let aux: any = {};
+    response.data.forEach((element, i) => {
+      if (cont < 3) {
+        aux[`${i}`] = element;
+        cont++;
+      } else {
+        cont = 0;
+        this.Crimes.push(aux);
+        aux = {};
+      }
+    });
   };
   @action setCrimes(value: string) {
     let test = this.Crimes.filter((cri) => {
