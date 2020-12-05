@@ -8,6 +8,7 @@ class CrimesStore {
   @observable array: any = ["william", "alex"];
   @observable category: any[] = [];
   @observable Crimes: any[] = [];
+  @observable ListCrimes: any[] = [];
   @observable cat: any = "";
   constructor() {
     makeAutoObservable(this);
@@ -30,7 +31,6 @@ class CrimesStore {
   };
   requestAllCrimes = async (url: string) => {
     let response = await axios.get(url);
-    // this.Crimes = response.data;
     let cont = 0;
     let aux: any = {};
     response.data.forEach((element, i) => {
@@ -43,6 +43,7 @@ class CrimesStore {
         aux = {};
       }
     });
+    this.ListCrimes.push(response.data);
   };
   @action setCrimes(value: string) {
     let test = this.Crimes.filter((cri) => {
@@ -52,7 +53,33 @@ class CrimesStore {
   }
   @action setCat(value) {
     this.cat = value;
-    this.Crimes = this.Crimes.filter((c) => c.category === value);
+    let cont = 0;
+    let aux: any = {};
+    if (value === "all-crime") {
+      this.ListCrimes[0].forEach((element, i) => {
+        if (cont < 3) {
+          aux[`${i}`] = element;
+          cont++;
+        } else {
+          cont = 0;
+          this.Crimes.push(aux);
+          aux = {};
+        }
+      });
+    } else {
+      let test = this.ListCrimes[0].filter((c: any) => c.category === value);
+      this.Crimes = [];
+      test.forEach((element, i) => {
+        if (cont < 3) {
+          aux[`${i}`] = element;
+          cont++;
+        } else {
+          cont = 0;
+          this.Crimes.push(aux);
+          aux = {};
+        }
+      });
+    }
   }
 }
 

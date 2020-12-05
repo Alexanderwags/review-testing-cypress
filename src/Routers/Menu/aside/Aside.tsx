@@ -31,9 +31,7 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
           }}
-        >
-          {/* {intl.formatMessage({ id: "sidebarTitle" })} */}
-        </div>
+        ></div>
       </SidebarHeader>
       <SidebarContent>
         <Menu />

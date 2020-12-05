@@ -1,13 +1,9 @@
 import { inject } from "mobx-react";
 import React from "react";
-import ReactPlaceholder from "react-placeholder/lib";
-import { RectShape } from "react-placeholder/lib/placeholders";
 import CrimesStore from "Store/CrimesStore";
 import Style from "./Styles/Display.module.scss";
 import "react-placeholder/lib/reactPlaceholder.css";
-import { Crime } from "./Crime";
-import Location from "utils/svg/Location";
-import Area from "utils/svg/Area";
+
 import {
   IoLocationOutline,
   IoInformationCircleSharp,

@@ -7,7 +7,6 @@ const Router = () => {
   return (
     <>
       <BrowserRouter>
-        {/* <Menu /> */}
         <Layout />
       </BrowserRouter>
     </>

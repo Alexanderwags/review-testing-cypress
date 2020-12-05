@@ -13,14 +13,6 @@ const context: any = {
 function App() {
   return (
     <Provider {...context}>
-      {/* <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a> */}
       <Router />
     </Provider>
   );
